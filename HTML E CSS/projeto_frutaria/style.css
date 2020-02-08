@@ -1,0 +1,27 @@
+.img-carrossel{
+    object-fit: cover;
+    object-position: 0 80%;
+    height: 400px;    
+}
+
+.fonte-principal{
+    font-family: 'Pacifico', cursive;
+}
+
+.cor-principal {
+    color: darkred !important;
+}
+
+.btn-principal{
+    background-color: darkred;
+}
+
+.card-largura{
+   max-width: 18rem;
+}
+
+.img-card{
+    object-fit: cover;
+    /*object-position: 0 80%;*/
+    height: 200px;  
+}

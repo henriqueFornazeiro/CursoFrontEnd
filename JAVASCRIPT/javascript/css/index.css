@@ -139,17 +139,13 @@ button[disabled=disabled], button:disabled {
 	font-weight: bolder;
 }
 
-.erro-validacao{
+#mensagens-erro li{
 	background-color: rgb(255, 219, 219);
 	color: red;
 	font-weight: bolder;
 	padding: 10px;
 	border-radius: 8px;
 	border: 1px solid red;
-	
-}
-
-span .erro-validacao{
-	margin: 50px 0px;
+	margin-bottom: 5px;
 }
 

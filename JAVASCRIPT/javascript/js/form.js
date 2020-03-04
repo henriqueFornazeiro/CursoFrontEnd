@@ -5,14 +5,13 @@ btnAdicionar.addEventListener("click", function(){ //addEventListener - adiciona
 
     var paciente = capturaPacienteDoForm(form)
 
-    var pacienteTr = criarTr(paciente);
+    var pacienteTr = criarTr(paciente)
 
-    var erro = validaForm(paciente)
+    var erro = validaPaciente(paciente)
+    console.log(erro);
 
     if(erro.length > 0 ){
-        var msgErro = document.querySelector("#mensagem-erro");
-        msgErro.textContent = erro
-        msgErro.classList.add("erro-validacao")
+        exibeMensagemDeErro(erro)
         return
     }
 
@@ -20,6 +19,8 @@ btnAdicionar.addEventListener("click", function(){ //addEventListener - adiciona
     tabela.appendChild(pacienteTr)
 
     form.reset()
+    var mensagens = document.querySelector("#mensagens-erro");
+    mensagens.innerHTML = ""
 })
 
 function capturaPacienteDoForm(form){
@@ -32,6 +33,17 @@ function capturaPacienteDoForm(form){
     } //{} -- cria objeto paciente, passando propriedades
 
     return paciente
+}
+function exibeMensagemDeErro(erros){
+    var ul = document.querySelector("#mensagens-erro");
+
+    ul.innerHTML = "" //Controlar HTML do elemento
+
+    erros.forEach(function(erro){
+        var li =document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li)
+    })
 }
 
 function criarTr(paciente){
@@ -55,13 +67,23 @@ function criarTd(dado, classe){
     return td
 }
 
-function validaForm(paciente){
+function validaPaciente(paciente){
 
     var erros = []
 
+    if(paciente.nome.length == 0){
+        erros.push("O nome não pode estar em branco")
+    }
+
     if(!validaPeso(paciente.peso)) erros.push("Peso é invalido")
 
-    if(!validaAltura(paciente.altura)) erros.push(" Altura é invalida")
+    if(paciente.peso.length == 0) erros.push("O peso não pode estar em branco")
+
+    if(!validaAltura(paciente.altura)) erros.push("Altura é invalida")
     
+    if(paciente.altura.length == 0) erros.push("A altura não pode estar em branco")
+
+    if(paciente.gordura.length == 0) erros.push("A gordura não pode estar em branco")
+
     return erros
 }

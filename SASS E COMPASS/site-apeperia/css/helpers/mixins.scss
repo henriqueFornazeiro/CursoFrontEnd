@@ -1,0 +1,30 @@
+//Mixins usados para o SASS
+@mixin borda-arredondada($raio-padrao:0.3em) {
+    -webkit-border-radius: $raio-padrao;
+    -moz-border-radius:$raio-padrao;
+    -o-border-radius:$raio-padrao;
+    border-radius: $raio-padrao;
+}
+
+//placeholder
+%image-replacement {
+  text-indent: -9999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+
+%sombra-padrao {
+  -webkit-box-shadow:0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+}
+
+@function multiplica-pela-fonte($multiplicador) {
+  @return round($multiplicador*$tamanho-fonte-padrao);
+}
+
+//compass
+
+@import "compass/css3";
+
+
+  
